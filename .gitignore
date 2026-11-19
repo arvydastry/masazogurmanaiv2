@@ -4,3 +4,4 @@ dist/
 wp-content/uploads/
 # Vidinės pastabos apie kliento svetainę — tik šiame kompiuteryje
 VIDINES-PASTABOS.md
+.claude/

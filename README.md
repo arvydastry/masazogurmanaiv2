@@ -4,8 +4,11 @@ Atnaujintos masazogurmanai.lt svetainės **demo versija**: masažuotojas Povilas
 Nauja tema `masazo-gurmanai` — juoda ir auksas pagal kliento iškabą, puslapiai redaguojami su **Elementor**,
 rezervacija vyksta tik per **Treatwell**.
 
-> **Tikroje svetainėje ši tema neįdiegta.** Tai peržiūrai skirta versija: ji veikia vietinėje aplinkoje
-> (žr. „Vietinė aplinka“), o masazogurmanai.lt tebeveikia su senąja tema.
+**Gyva peržiūra: https://arvydastry.github.io/masazogurmanaiv2/**
+
+> **Tikroje svetainėje ši tema neįdiegta.** Tai peržiūrai skirta versija, o masazogurmanai.lt tebeveikia su senąja tema.
+> Gyva peržiūra — statinė vietinės svetainės kopija (šaka `gh-pages`): atrodo ir veikia kaip tikra, mygtukai veda
+> į Treatwell, bet joje nėra WordPress administravimo ir Elementor redaktoriaus; nuo paieškos sistemų ji paslėpta (`noindex`).
 
 Peržiūra: `ekrano-nuotraukos/` · Temos archyvas diegimui: `dist/masazo-gurmanai-2.0.0.zip`
 
@@ -59,7 +62,10 @@ tikrame serveryje: **WordPress 7.1, PHP 8.5**, klaidų rodymas įjungtas (tema n
 ./skriptai/paleisti.sh --force   # iš naujo įrašyti pradinį puslapių turinį ir paslaugas
 ./skriptai/paleisti.sh --reset   # ištrinti vietinę duomenų bazę ir diegti nuo nulio
 ./skriptai/paketas.sh            # paruošti dist/masazo-gurmanai-<versija>.zip
+python3 skriptai/statine-kopija.py <katalogas>   # statinė kopija gyvai peržiūrai (GitHub Pages)
 ```
+
+Gyva peržiūra atnaujinama taip: sugeneruoti statinę kopiją į tuščią katalogą ir jo turinį įkelti į šaką `gh-pages`.
 
 Projektas guli `~/Documents`, todėl iCloud kartais „iškelia“ failus iš disko ir Docker jų nemato —
 skriptai tokius failus prieš darbą parsiunčia patys.
