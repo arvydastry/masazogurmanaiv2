@@ -1,8 +1,11 @@
 # Masažo Gurmanai — WordPress tema v2 (Elementor)
 
-Atnaujinta masazogurmanai.lt svetainė: masažuotojas Povilas Maliukevičius, Kaunas.
+Atnaujintos masazogurmanai.lt svetainės **demo versija**: masažuotojas Povilas Maliukevičius, Kaunas.
 Nauja tema `masazo-gurmanai` — juoda ir auksas pagal kliento iškabą, puslapiai redaguojami su **Elementor**,
 rezervacija vyksta tik per **Treatwell**.
+
+> **Tikroje svetainėje ši tema neįdiegta.** Tai peržiūrai skirta versija: ji veikia vietinėje aplinkoje
+> (žr. „Vietinė aplinka“), o masazogurmanai.lt tebeveikia su senąja tema.
 
 Peržiūra: `ekrano-nuotraukos/` · Temos archyvas diegimui: `dist/masazo-gurmanai-2.0.0.zip`
 
@@ -82,47 +85,33 @@ wp-content/themes/masazo-gurmanai/
 
 Spalvos keičiamos vienoje vietoje — `assets/css/main.css` pradžioje (`--mg-gold`, `--mg-bg` ir kt.).
 
-## Tikra svetainė — masazogurmanai.lt
+## Diegimas tikroje svetainėje (kai bus nuspręsta)
 
-**Tema įdiegta ir įjungta 2026-11-19.** Atlikta:
+Tema į masazogurmanai.lt **nekeliama, kol to aiškiai nepaprašyta.** Jei ateis laikas, žingsniai tokie
+(apie 15 min., geriausia vakare):
 
-1. Atsarginė kopija prieš pakeitimus — UpdraftPlus, 2026-11-19 14:56 (duomenų bazė ir failai, saugoma serveryje).
-2. Įdiegtas ir įjungtas **Elementor** 4.4.1 (nemokamas).
-3. Įkelta ir įjungta tema `masazo-gurmanai` 2.0.0, paleistas *Masažo Gurmanai → Pradinis turinys*:
-   užpildyti šeši esami puslapiai (adresai nepasikeitė), sukurta 18 paslaugų, meniu ir nustatymai.
-4. *Code Snippets* (WPCode) išjungti senojo kalendoriaus intarpai: „Hero greita rezervacija (JS)“,
+1. **Atsarginė kopija:** UpdraftPlus → „Backup Now“ (duomenų bazė ir failai).
+2. **Perkelti į Treatwell būsimas rezervacijas**, priimtas per svetainės kalendorių (*Rezervacijos* administravime) —
+   po pakeitimo svetainė jų nebepriims.
+3. Įskiepiai → Pridėti → **Elementor** (nemokamas) → Įjungti.
+4. Išvaizda → Temos → Pridėti temą → Įkelti → `dist/masazo-gurmanai-2.0.0.zip` → **Įjungti**.
+5. Iškart: *Masažo Gurmanai → Pradinis turinys → „Sukurti pradinį turinį“.* Esami puslapiai
+   (pradžia, paslaugos, kuponai, apie, atsiliepimai, kontaktai) randami pagal adresą ir užpildomi; adresai nesikeičia.
+6. *Code Snippets* (WPCode) — išjungti senojo kalendoriaus intarpus: „Hero greita rezervacija (JS)“,
    „Hero greita rezervacija (CSS)“, „Body map sekcijos paslėpimas (CSS)“,
    „Rezervacijų konversijos (Meta Pixel + GA4) + šaltinis (JS)“.
-   Palikti įjungti: „Rezervacijų žurnalas ir statistika (PHP)“ — kad administravime liktų senų rezervacijų sąrašas
-   (*Rezervacijos*), ir „pop up akcija“ (nuo temos nepriklauso).
-5. Išvalyta LiteSpeed talpykla.
+7. *Masažo Gurmanai → Nustatymai* — peržiūrėti (ypač „Reklamos sekimas“ ir „Įvertinimas“).
+8. LiteSpeed Cache → **Purge All**. Patikrinti svetainę neprisijungus (inkognito lange) ir telefone.
 
-Patikrinta po įdiegimo: visi puslapiai atsidaro be PHP pranešimų (kompiuteryje ir telefono pločiu), senieji adresai
-nukreipiami (`/kursai`, `/straipsniai`), visos 14 tiesioginių „Treatwell“ nuorodų atveria teisingą paslaugą ir trukmę,
-Elementor redaktorius atsidaro su visais 15 temos blokų, reklamos žymos („Google Ads“, GA4, „Meta Pixel“)
-liko vietoje.
+**Ką „Pradinis turinys“ pakeičia svetainėje** (svarbu žinoti prieš diegiant ir norint grįžti atgal):
 
-**Dar reikia padaryti ranka:** senajame kalendoriuje priimtas būsimas rezervacijas (*Rezervacijos* administravime)
-įvesti į „Treatwell“ — kitaip tie laikai ten liks laisvi.
+- šešių puslapių turinį (įrašomas Elementor turinys) ir jų šabloną — šablonai atkuriami patys, kai vėl įjungiama
+  senoji tema, o turinį reikia atstatyti iš puslapio versijų (*Versijos*) arba iš atsarginės kopijos;
+- *Nuostatos → Skaitymas → Įrašų puslapis* nustatomas į „Straipsniai“, jei buvo nenustatytas;
+- į failų biblioteką įkeliama 15 paveikslėlių, sukuriama 18 paslaugų ir du meniu.
 
-### Temos atnaujinimas
-
-1. Pakeisti versiją `style.css` (`Version:`) ir `functions.php` (`MG_VERSION`), paleisti `./skriptai/paketas.sh`.
-2. Išvaizda → Temos → Pridėti temą → Įkelti → pasirinkti naują archyvą → patvirtinti, kad esama tema pakeičiama įkeltąja.
-3. LiteSpeed Cache → **Purge All**.
-
-Puslapių turinys ir paslaugos atnaujinant temą nesikeičia. „Pradinis turinys“ be varnelės „Perrašyti“
-jau užpildytų puslapių neliečia.
-
-### Jei reikia grįžti atgal
-
-Išvaizda → Temos → vėl įjungti „Gydomasis Masažas“ ir WPCode įjungti keturis išjungtus intarpus.
-Senosios temos nustatymai neliesti, o puslapių šablonai atkuriami automatiškai. Pilnas atstatymas — iš UpdraftPlus kopijos.
-
-### Naujas diegimas kitoje svetainėje
-
-Įskiepiai → Pridėti → **Elementor** → Įjungti · Išvaizda → Temos → Įkelti `dist/masazo-gurmanai-2.0.0.zip` → Įjungti ·
-*Masažo Gurmanai → Pradinis turinys → „Sukurti pradinį turinį“* · peržiūrėti *Masažo Gurmanai → Nustatymai*.
+**Grįžimas atgal:** įjungti senąją temą, WPCode įjungti išjungtus intarpus, išjungti Elementor, atstatyti aukščiau
+išvardytus pakeitimus ir išvalyti talpyklą — arba tiesiog atkurti duomenų bazę iš 1 žingsnio kopijos.
 
 ## Techninės pastabos
 
