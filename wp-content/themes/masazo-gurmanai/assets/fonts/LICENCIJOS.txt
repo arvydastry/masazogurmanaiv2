@@ -1,0 +1,8 @@
+Temoje naudojami šriftai (visi – SIL Open Font License 1.1, https://openfontlicense.org):
+
+- Allura — © 2011 TypeSETit, LLC (Robert Leuschke)
+- Marcellus — © 2012 Astigmatic (Brian J. Bonislawsky)
+- Hanken Grotesk — © 2021 The Hanken Grotesk Project Authors (Alfredo Marco Pradil)
+
+Failai parsiųsti iš Google Fonts (latin ir latin-ext poaibiai, WOFF2) ir laikomi temoje,
+todėl lankytojo naršyklė nesikreipia į Google serverius.

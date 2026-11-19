@@ -1,0 +1,61 @@
+/* Masažo Gurmanai — administravimo stiliai (nustatymai, paslaugos). */
+
+.mg-admin h2 {
+	margin-top: 2.2em;
+	padding-top: 1.2em;
+	border-top: 1px solid #dcdcde;
+	font-size: 1.25em;
+}
+
+.mg-admin h1 + p + h2,
+.mg-admin form > h2:first-of-type {
+	border-top: 0;
+	padding-top: 0;
+}
+
+.mg-admin .form-table th {
+	width: 260px;
+}
+
+.mg-admin .mg-status {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.mg-admin .mg-status--ok {
+	background: #edfaef;
+	color: #1a6b2d;
+}
+
+.mg-admin .mg-status--todo {
+	background: #fcf9e8;
+	color: #6b5200;
+}
+
+.mg-admin .mg-log {
+	max-width: 760px;
+	padding: 12px 16px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #fff;
+}
+
+.mg-admin .mg-log li {
+	margin: 4px 0;
+}
+
+/* Paslaugų sąrašas: siauresni papildomi stulpeliai */
+.post-type-mg_paslauga .column-mg_price,
+.post-type-mg_paslauga .column-mg_duration,
+.post-type-mg_paslauga .column-mg_type,
+.post-type-mg_paslauga .column-mg_featured,
+.post-type-mg_paslauga .column-mg_order {
+	width: 9%;
+}
+
+.post-type-mg_paslauga .column-mg_cta {
+	width: 16%;
+}
