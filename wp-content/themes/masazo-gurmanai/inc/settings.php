@@ -55,7 +55,7 @@ function mg_defaults(): array {
 		'rating_value'      => '4,9',
 		'rating_count'      => '46',
 		'rating_source'     => 'Treatwell',
-		'rating_url'        => 'https://www.treatwell.lt/salonas/masazo-gurmanai/',
+		'rating_url'        => 'https://trea.tw/HVeWMChwFZ2375fuC',
 
 		// Prekės ženklas.
 		'brand_name'        => 'Masažo Gurmanai',
