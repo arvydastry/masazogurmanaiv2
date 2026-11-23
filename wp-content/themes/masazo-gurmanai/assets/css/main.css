@@ -2417,7 +2417,8 @@ a.mg-voucher:hover .mg-voucher__media img {
 }
 
 .mg-logo--footer .mg-logo__name {
-	font-size: 2.7rem;
+	/* Siauriausiuose telefonuose (320 px) mažėja, kad netilptų už ekrano krašto. */
+	font-size: clamp(2rem, 11vw, 2.7rem);
 }
 
 .mg-footer__about {
