@@ -9,7 +9,7 @@ rezervacija vyksta tik per **Treatwell**.
 Statinė peržiūros kopija: https://arvydastry.github.io/masazogurmanaiv2/ (šaka `gh-pages`, be WordPress administravimo,
 paslėpta nuo paieškos sistemų — `noindex`).
 
-Peržiūra: `ekrano-nuotraukos/` · Temos archyvas diegimui: `dist/masazo-gurmanai-2.0.1.zip`
+Peržiūra: `ekrano-nuotraukos/` · Temos archyvas diegimui: `dist/masazo-gurmanai-2.0.2.zip`
 
 ## Kas padaryta pagal kliento prašymus
 
@@ -99,7 +99,7 @@ prieš kiekvieną diegimą tikroje svetainėje — aiškus sutarimas):
 2. **Perkelti į Treatwell būsimas rezervacijas**, priimtas per svetainės kalendorių (*Rezervacijos* administravime) —
    po pakeitimo svetainė jų nebepriims.
 3. Įskiepiai → Pridėti → **Elementor** (nemokamas) → Įjungti.
-4. Išvaizda → Temos → Pridėti temą → Įkelti → `dist/masazo-gurmanai-2.0.1.zip` → **Įjungti**.
+4. Išvaizda → Temos → Pridėti temą → Įkelti → `dist/masazo-gurmanai-2.0.2.zip` → **Įjungti**.
 5. Iškart: *Masažo Gurmanai → Pradinis turinys → „Sukurti pradinį turinį“.* Esami puslapiai
    (pradžia, paslaugos, kuponai, apie, atsiliepimai, kontaktai) randami pagal adresą ir užpildomi; adresai nesikeičia.
 6. *Code Snippets* (WPCode) — išjungti senojo kalendoriaus intarpus: „Hero greita rezervacija (JS)“,

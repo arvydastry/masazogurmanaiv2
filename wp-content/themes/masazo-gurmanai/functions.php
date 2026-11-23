@@ -18,7 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'MG_VERSION', '2.0.1' );
+define( 'MG_VERSION', '2.0.2' );
 define( 'MG_DIR', get_template_directory() );
 define( 'MG_URI', get_template_directory_uri() );
 
