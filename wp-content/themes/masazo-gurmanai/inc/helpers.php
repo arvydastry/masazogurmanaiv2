@@ -231,11 +231,30 @@ function mg_is_external( string $url ): bool {
 	return '' !== $host && strtolower( $host ) !== strtolower( $home );
 }
 
-/** Ar nuoroda veda į rezervacijos sistemą („Treatwell“). */
+/**
+ * Ar nuoroda veda į rezervaciją: bendroji rezervacijos nuoroda iš nustatymų, trumpoji „Treatwell“ nuoroda (trea.tw)
+ * arba „Treatwell“ rezervacijos puslapis. Salono puslapis su atsiliepimais (/salonas/…) rezervacija nelaikomas,
+ * kad paspaudimas „Skaityti atsiliepimus“ nebūtų skaičiuojamas kaip rezervacija.
+ */
 function mg_is_booking_url( string $url ): bool {
-	$host = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
+	$url = trim( $url );
+	if ( '' === $url ) {
+		return false;
+	}
 
-	return '' !== $host && false !== strpos( $host, 'treatwell.' );
+	$booking = trim( (string) mg_get( 'booking_url' ) );
+	if ( '' !== $booking && untrailingslashit( $url ) === untrailingslashit( $booking ) ) {
+		return true;
+	}
+
+	$host = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
+	$path = strtolower( (string) wp_parse_url( $url, PHP_URL_PATH ) );
+
+	if ( 'trea.tw' === $host || 0 === strpos( $host, 'book.treatwell.' ) ) {
+		return true;
+	}
+
+	return false !== strpos( $host, 'treatwell.' ) && 0 !== strpos( $path, '/salonas/' );
 }
 
 /** Bendroji rezervacijos nuoroda (arba konkrečios paslaugos, jei nurodyta). */

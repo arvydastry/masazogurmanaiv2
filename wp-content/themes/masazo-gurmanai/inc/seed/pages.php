@@ -315,7 +315,7 @@ return array(
 				'mg-services',
 				array(
 					'h_title'    => 'Masažai',
-					'h_lead'     => 'Paspauskite paslaugą ir pamatysite jos aprašymą. Mygtukas „Rezervuoti“ iškart atveria tos paslaugos laisvus laikus.',
+					'h_lead'     => 'Paspauskite paslaugą ir pamatysite jos aprašymą. Mygtukas „Rezervuoti“ atveria rezervaciją „Treatwell“ sistemoje.',
 					'h_tag'      => 'h2',
 					'layout'     => 'list',
 					'type'       => 'single',

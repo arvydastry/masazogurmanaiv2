@@ -8,7 +8,7 @@
  *   1. įrašo nustatymus (kontaktai, „Treatwell“ nuoroda, darbo laikas);
  *   2. pritaiko Elementor globalius stilius (spalvos, šriftai);
  *   3. įkelia temos nuotraukas į Media biblioteką;
- *   4. sukuria paslaugas (su tiesioginėmis „Treatwell“ nuorodomis);
+ *   4. sukuria paslaugas (mygtukas „Rezervuoti“ veda į bendrąją rezervacijos nuorodą);
  *   5. puslapius užpildo Elementor turiniu (esami puslapiai randami pagal adresą, nauji nekuriami dukart);
  *   6. priskiria pradžios puslapį ir sukuria meniu.
  *
@@ -264,24 +264,6 @@ function mg_setup_has_elementor( int $post_id ): bool {
 	return is_array( $data ) && count( $data ) > 0;
 }
 
-/** Tiesioginė „Treatwell“ nuoroda į paslaugos laikų pasirinkimą. */
-function mg_setup_treatwell_url( string $item, string $option ): string {
-	if ( '' === $item || '' === $option ) {
-		return '';
-	}
-
-	$payload = (string) wp_json_encode(
-		array(
-			array(
-				'menuItemId' => $item,
-				'optionIds'  => array( $option ),
-			),
-		)
-	);
-
-	return 'https://www.treatwell.lt/availability?venueId=480496&proposedServices=' . rawurlencode( $payload );
-}
-
 /* -------------------------------------------------------------------------
  * Žingsniai
  * ---------------------------------------------------------------------- */
@@ -384,7 +366,7 @@ function mg_setup_services( bool $force, array &$log ): void {
 			'_mg_desc'        => $row['desc'],
 			'_mg_bullets'     => implode( "\n", $row['bullets'] ),
 			'_mg_cta'         => $is_program ? 'call' : 'book',
-			'_mg_booking_url' => mg_setup_treatwell_url( $row['tw_item'], $row['tw_option'] ),
+			'_mg_booking_url' => '', // visos paslaugos naudoja bendrąją rezervacijos nuorodą (Nustatymai).
 			'_mg_icon'        => $row['icon'],
 			'_mg_featured'    => $row['featured'] ? '1' : '',
 		);
@@ -610,7 +592,7 @@ function mg_render_setup_page(): void {
 	?>
 	<div class="wrap mg-admin" style="max-width:820px">
 		<h1>Masažo Gurmanai — pradinis turinys</h1>
-		<p>Šis įrankis užpildo svetainę paruoštu turiniu: puslapius (pradžia, paslaugos, dovanų kuponai, apie mane, atsiliepimai, kontaktai), paslaugų sąrašą su kainomis ir tiesioginėmis „Treatwell“ nuorodomis, meniu ir nuotraukas.</p>
+		<p>Šis įrankis užpildo svetainę paruoštu turiniu: puslapius (pradžia, paslaugos, dovanų kuponai, apie mane, atsiliepimai, kontaktai), paslaugų sąrašą su kainomis ir rezervacijos mygtukais, meniu ir nuotraukas.</p>
 
 		<?php if ( is_array( $log ) && $log ) : ?>
 			<?php delete_transient( 'mg_setup_log_' . get_current_user_id() ); ?>

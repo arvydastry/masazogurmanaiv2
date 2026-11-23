@@ -65,7 +65,7 @@ function mg_service_fields(): array {
 		'_mg_booking_url' => array(
 			'label' => 'Rezervacijos nuoroda (šiai paslaugai)',
 			'type'  => 'url',
-			'desc'  => 'Tiesioginė „Treatwell“ nuoroda į šios paslaugos laikų pasirinkimą. Palikus tuščią, naudojama bendroji nuoroda iš nustatymų.',
+			'desc'  => 'Paprastai paliekama tuščia — tada naudojama bendroji rezervacijos nuoroda iš nustatymų.',
 		),
 		'_mg_icon'        => array(
 			'label'   => 'Ikona',

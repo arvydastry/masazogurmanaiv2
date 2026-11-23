@@ -25,7 +25,7 @@ function mg_defaults(): array {
 
 	return array(
 		// Rezervacija.
-		'booking_url'       => 'https://www.treatwell.lt/salonas/masazo-gurmanai/',
+		'booking_url'       => 'https://trea.tw/HVeWMChwFZ2375fuC',
 		'booking_label'     => 'Rezervuoti laiką',
 		'booking_new_tab'   => 1,
 		'mobile_bar'        => 1,
@@ -127,7 +127,7 @@ function mg_settings_schema(): array {
 	return array(
 		'rezervacija' => array(
 			'title'  => 'Rezervacija',
-			'intro'  => 'Visi svetainės mygtukai „Rezervuoti“ veda į šią nuorodą. Konkrečiai paslaugai galima nurodyti atskirą nuorodą: Paslaugos → pasirinkite paslaugą → „Rezervacijos nuoroda“.',
+			'intro'  => 'Visi svetainės mygtukai „Rezervuoti“ veda į šią nuorodą (taip pat ir paslaugų sąraše). Jei kada prireiktų, konkrečiai paslaugai galima nurodyti atskirą nuorodą: Paslaugos → pasirinkite paslaugą → „Rezervacijos nuoroda“.',
 			'fields' => array(
 				'booking_url'     => array(
 					'label' => 'Rezervacijos („Treatwell“) nuoroda',
@@ -577,7 +577,7 @@ function mg_render_help_page(): void {
 
 		<h2>Rezervacija</h2>
 		<p>Rezervacijos vyksta tik per „Treatwell“. Svetainė savo kalendoriaus neturi, todėl užsakymus, priminimus klientams ir apskaitą matote vienoje vietoje — „Treatwell“ paskyroje.</p>
-		<p>Prie kiekvienos paslaugos galima įrašyti tiesioginę „Treatwell“ nuorodą — tada mygtukas „Rezervuoti“ iškart atidaro tos paslaugos laikų pasirinkimą. Jei laukas tuščias, naudojama bendroji nuoroda iš nustatymų.</p>
+		<p>Visi mygtukai „Rezervuoti“ veda į bendrąją rezervacijos nuorodą iš nustatymų. Jei kada prireiktų, prie paslaugos galima įrašyti atskirą nuorodą — tada tos paslaugos mygtukas ves į ją.</p>
 	</div>
 	<?php
 }

@@ -9,7 +9,7 @@ rezervacija vyksta tik per **Treatwell**.
 Statinė peržiūros kopija: https://arvydastry.github.io/masazogurmanaiv2/ (šaka `gh-pages`, be WordPress administravimo,
 paslėpta nuo paieškos sistemų — `noindex`).
 
-Peržiūra: `ekrano-nuotraukos/` · Temos archyvas diegimui: `dist/masazo-gurmanai-2.0.0.zip`
+Peržiūra: `ekrano-nuotraukos/` · Temos archyvas diegimui: `dist/masazo-gurmanai-2.0.1.zip`
 
 ## Kas padaryta pagal kliento prašymus
 
@@ -20,7 +20,7 @@ Peržiūra: `ekrano-nuotraukos/` · Temos archyvas diegimui: `dist/masazo-gurman
 | Naujos kabineto nuotraukos | Kabineto nuotraukos naudojamos trijose vietose (pradžia, „Apie mane“ galerija, kontaktai) — visos keičiamos Elementor. Kai klientas atsiųs naujas, užtenka jas pakeisti. |
 | Pašalinti „Body Map“ | Naujoje temoje šios skilties nėra. |
 | Išjungti straipsnius | *Masažo Gurmanai → Nustatymai → Straipsniai*: numatyta **„Paslėpta“** — meniu punkto ir sąrašo nėra, bet du jau parašyti straipsniai lieka pasiekiami per „Google“ (neprarandami lankytojai). Galima ir „Visiškai išjungta“, ir bet kada vėl „Rodoma“. Straipsniai neištrinami. |
-| Rezervacija per „Treatwell“ | Visi mygtukai „Rezervuoti laiką“ veda į Treatwell. Prie kiekvieno masažo — **tiesioginė nuoroda į tos paslaugos laikų pasirinkimą** (vienu paspaudimu mažiau). Svetainės kalendoriaus ir rezervacijos formų nebėra — lieka vienas kalendorius. |
+| Rezervacija per „Treatwell“ | Visi mygtukai „Rezervuoti“ (antraštėje, telefono juostoje, prie kiekvienos paslaugos, blokuose) veda į vieną Treatwell nuorodą **https://trea.tw/HVeWMChwFZ2375fuC**, nurodomą *Masažo Gurmanai → Nustatymai → Rezervacija*. Svetainės kalendoriaus ir rezervacijos formų nebėra — lieka vienas kalendorius. |
 
 Papildomai: telefone ekrano apačioje visada matoma juosta „Skambinti / Rezervuoti laiką“; paslaugos ir kainos
 valdomos vienoje vietoje; sutvarkyta antraštė „Google“ rezultatuose (anksčiau buvo tiesiog „masazogurmanai.lt“),
@@ -99,7 +99,7 @@ prieš kiekvieną diegimą tikroje svetainėje — aiškus sutarimas):
 2. **Perkelti į Treatwell būsimas rezervacijas**, priimtas per svetainės kalendorių (*Rezervacijos* administravime) —
    po pakeitimo svetainė jų nebepriims.
 3. Įskiepiai → Pridėti → **Elementor** (nemokamas) → Įjungti.
-4. Išvaizda → Temos → Pridėti temą → Įkelti → `dist/masazo-gurmanai-2.0.0.zip` → **Įjungti**.
+4. Išvaizda → Temos → Pridėti temą → Įkelti → `dist/masazo-gurmanai-2.0.1.zip` → **Įjungti**.
 5. Iškart: *Masažo Gurmanai → Pradinis turinys → „Sukurti pradinį turinį“.* Esami puslapiai
    (pradžia, paslaugos, kuponai, apie, atsiliepimai, kontaktai) randami pagal adresą ir užpildomi; adresai nesikeičia.
 6. *Code Snippets* (WPCode) — išjungti senojo kalendoriaus intarpus: „Hero greita rezervacija (JS)“,
@@ -120,9 +120,9 @@ išvardytus pakeitimus ir išvalyti talpyklą — arba tiesiog atkurti duomenų 
 
 ## Techninės pastabos
 
-- Tiesioginės paslaugų nuorodos (`treatwell.lt/availability?venueId=480496&proposedServices=…`) paimtos iš paties
-  Treatwell rezervacijos proceso; tai nėra oficialiai dokumentuotas adresas. Jei kuri nors nustotų veikti —
-  ištrynus lauką „Rezervacijos nuoroda“ paslaugos lange, mygtukas ves į bendrą salono puslapį.
+- Rezervacijos nuoroda keičiama vienoje vietoje (*Nustatymai → Rezervacija*). Prie paslaugos galima įrašyti atskirą nuorodą,
+  bet paprastai laukas paliekamas tuščias. Rezervacijos paspaudimu laikomos tik nuorodos į rezervaciją (ne į salono
+  atsiliepimų puslapį), todėl „Skaityti atsiliepimus“ konversijų neiškraipo.
 - Įvertinimas (4,9 / 46) įrašytas nustatymuose ir pats neatsinaujina.
 - Prieinamumas: tikrinta su axe (WCAG 2.1 AA) — pažeidimų nerasta; visi puslapiai valdomi klaviatūra,
   veikia „pereiti prie turinio“ nuoroda, gerbiamas „sumažinto judesio“ nustatymas.
