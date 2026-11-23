@@ -1,14 +1,13 @@
 # Masažo Gurmanai — WordPress tema v2 (Elementor)
 
-Atnaujintos masazogurmanai.lt svetainės **demo versija**: masažuotojas Povilas Maliukevičius, Kaunas.
+Atnaujinta masazogurmanai.lt svetainė: masažuotojas Povilas Maliukevičius, Kaunas.
 Nauja tema `masazo-gurmanai` — juoda ir auksas pagal kliento iškabą, puslapiai redaguojami su **Elementor**,
 rezervacija vyksta tik per **Treatwell**.
 
-**Gyva peržiūra: https://arvydastry.github.io/masazogurmanaiv2/**
+**Įdiegta: https://masazogurmanai.lt/** (2026-11-23)
 
-> **Tikroje svetainėje ši tema neįdiegta.** Tai peržiūrai skirta versija, o masazogurmanai.lt tebeveikia su senąja tema.
-> Gyva peržiūra — statinė vietinės svetainės kopija (šaka `gh-pages`): atrodo ir veikia kaip tikra, mygtukai veda
-> į Treatwell, bet joje nėra WordPress administravimo ir Elementor redaktoriaus; nuo paieškos sistemų ji paslėpta (`noindex`).
+Statinė peržiūros kopija: https://arvydastry.github.io/masazogurmanaiv2/ (šaka `gh-pages`, be WordPress administravimo,
+paslėpta nuo paieškos sistemų — `noindex`).
 
 Peržiūra: `ekrano-nuotraukos/` · Temos archyvas diegimui: `dist/masazo-gurmanai-2.0.0.zip`
 
@@ -91,10 +90,10 @@ wp-content/themes/masazo-gurmanai/
 
 Spalvos keičiamos vienoje vietoje — `assets/css/main.css` pradžioje (`--mg-gold`, `--mg-bg` ir kt.).
 
-## Diegimas tikroje svetainėje (kai bus nuspręsta)
+## Diegimas tikroje svetainėje
 
-Tema į masazogurmanai.lt **nekeliama, kol to aiškiai nepaprašyta.** Jei ateis laikas, žingsniai tokie
-(apie 15 min., geriausia vakare):
+Tema į masazogurmanai.lt įdiegta 2026-11-23 šiais žingsniais (tinka ir diegiant iš naujo ar kitoje svetainėje;
+prieš kiekvieną diegimą tikroje svetainėje — aiškus sutarimas):
 
 1. **Atsarginė kopija:** UpdraftPlus → „Backup Now“ (duomenų bazė ir failai).
 2. **Perkelti į Treatwell būsimas rezervacijas**, priimtas per svetainės kalendorių (*Rezervacijos* administravime) —
