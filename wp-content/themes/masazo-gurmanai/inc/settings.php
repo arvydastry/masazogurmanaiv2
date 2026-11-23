@@ -65,6 +65,24 @@ function mg_defaults(): array {
 		'facebook_url'      => '',
 		'instagram_url'     => '',
 
+		// Tekstai antraštėje, poraštėje ir kitose temos vietose.
+		'mobile_call_label'     => 'Skambinti',
+		'service_book_label'    => 'Rezervuoti',
+		'service_call_label'    => 'Skambinti',
+		'promo_label'           => 'Akcija',
+		'crumb_home_label'      => 'Pradžia',
+		'footer_nav_title'      => 'Nuorodos',
+		'footer_contacts_title' => 'Kontaktai',
+		'footer_hours_title'    => 'Darbo laikas',
+		'footer_copyright'      => '© {metai} Masažo Gurmanai. Povilas Maliukevičius. Visos teisės saugomos.',
+		'privacy_label'         => 'Privatumo politika',
+		'post_cta_title'        => 'Norite skirti laiko sau?',
+		'post_cta_text'         => 'Pasirinkite masažą ir rezervuokite Jums patogų laiką internetu.',
+		'services_link_label'   => 'Paslaugos ir kainos',
+		'notfound_title'        => 'Puslapis nerastas',
+		'notfound_text'         => 'Tokio adreso svetainėje nėra. Gali būti, kad puslapis buvo perkeltas.',
+		'notfound_home_label'   => 'Į pradžios puslapį',
+
 		// Straipsniai: on (rodoma) | hidden (paslėpta, straipsniai pasiekiami tiesiogine nuoroda) | off (išjungta).
 		'blog_mode'         => 'hidden',
 
@@ -224,7 +242,7 @@ function mg_settings_schema(): array {
 		),
 		'zenklas'     => array(
 			'title'  => 'Pavadinimas ir poraštė',
-			'intro'  => 'Logotipo paveikslėlis įkeliamas: Išvaizda → Konfigūruoti → Tinklalapio identifikacija. Kol jo nėra, rodomas pavadinimas tekstu.',
+			'intro'  => 'Logotipo paveikslėlis įkeliamas: Elementor → Svetainės nustatymai → Site Identity (arba Išvaizda → Konfigūruoti → Tinklalapio identifikacija). Kol jo nėra, rodomas pavadinimas tekstu.',
 			'fields' => array(
 				'brand_name'    => array(
 					'label' => 'Pavadinimas',
@@ -249,6 +267,78 @@ function mg_settings_schema(): array {
 				'instagram_url' => array(
 					'label' => '„Instagram“ nuoroda',
 					'type'  => 'url',
+				),
+			),
+		),
+		'tekstai'     => array(
+			'title'  => 'Kiti svetainės tekstai',
+			'intro'  => 'Užrašai antraštėje, poraštėje, telefono juostoje, paslaugų sąraše, straipsnių pabaigoje ir puslapyje „Puslapis nerastas“.',
+			'fields' => array(
+				'mobile_call_label'     => array(
+					'label' => 'Telefono juosta: skambinimo mygtukas',
+					'type'  => 'text',
+				),
+				'service_book_label'    => array(
+					'label' => 'Paslaugų sąrašas: rezervacijos mygtukas',
+					'type'  => 'text',
+				),
+				'service_call_label'    => array(
+					'label' => 'Paslaugų sąrašas: skambinimo mygtukas (programoms)',
+					'type'  => 'text',
+				),
+				'promo_label'           => array(
+					'label' => 'Paslaugų sąrašas: akcijos žyma',
+					'type'  => 'text',
+				),
+				'crumb_home_label'      => array(
+					'label' => 'Kelio nuoroda į pradžią (virš puslapio pavadinimo)',
+					'type'  => 'text',
+				),
+				'footer_nav_title'      => array(
+					'label' => 'Poraštė: nuorodų stulpelio pavadinimas',
+					'type'  => 'text',
+				),
+				'footer_contacts_title' => array(
+					'label' => 'Poraštė: kontaktų stulpelio pavadinimas',
+					'type'  => 'text',
+				),
+				'footer_hours_title'    => array(
+					'label' => 'Poraštė: darbo laiko stulpelio pavadinimas',
+					'type'  => 'text',
+				),
+				'footer_copyright'      => array(
+					'label' => 'Poraštė: apatinė eilutė',
+					'type'  => 'text',
+					'desc'  => '{metai} pakeičiama einamaisiais metais.',
+				),
+				'privacy_label'         => array(
+					'label' => 'Poraštė: nuoroda į privatumo politiką',
+					'type'  => 'text',
+					'desc'  => 'Rodoma, kai sukurtas privatumo politikos puslapis (Nuostatos → Privatumas).',
+				),
+				'post_cta_title'        => array(
+					'label' => 'Straipsnio pabaiga: antraštė',
+					'type'  => 'text',
+				),
+				'post_cta_text'         => array(
+					'label' => 'Straipsnio pabaiga: tekstas',
+					'type'  => 'textarea',
+				),
+				'services_link_label'   => array(
+					'label' => 'Mygtukas į paslaugų puslapį (straipsniuose ir puslapyje „Puslapis nerastas“)',
+					'type'  => 'text',
+				),
+				'notfound_title'        => array(
+					'label' => 'Puslapis nerastas: antraštė',
+					'type'  => 'text',
+				),
+				'notfound_text'         => array(
+					'label' => 'Puslapis nerastas: tekstas',
+					'type'  => 'textarea',
+				),
+				'notfound_home_label'   => array(
+					'label' => 'Puslapis nerastas: mygtukas į pradžią',
+					'type'  => 'text',
 				),
 			),
 		),
@@ -381,7 +471,7 @@ function mg_sanitize_settings( $input ): array {
 	}
 
 	// Privalomos reikšmės negali likti tuščios.
-	foreach ( array( 'booking_url', 'booking_label', 'brand_name', 'ga4_event', 'meta_event' ) as $required ) {
+	foreach ( array( 'booking_url', 'booking_label', 'brand_name', 'ga4_event', 'meta_event', 'mobile_call_label', 'service_book_label', 'service_call_label' ) as $required ) {
 		if ( '' === trim( (string) $out[ $required ] ) ) {
 			$out[ $required ] = $defaults[ $required ];
 		}
@@ -564,10 +654,10 @@ function mg_render_help_page(): void {
 			</thead>
 			<tbody>
 				<tr><td>Paslaugos pavadinimą, aprašymą, kainą, trukmę, akciją</td><td><a href="<?php echo esc_url( admin_url( 'edit.php?post_type=mg_paslauga' ) ); ?>">Paslaugos</a> → pasirinkite paslaugą. Pakeitimas iškart matomas ir pradžios, ir paslaugų puslapyje.</td></tr>
-				<tr><td>Telefoną, adresą, darbo laiką, rezervacijos nuorodą, įvertinimą</td><td><a href="<?php echo esc_url( admin_url( 'admin.php?page=mg-settings' ) ); ?>">Masažo Gurmanai → Nustatymai</a></td></tr>
+				<tr><td>Antraštę, poraštę, telefono juostą, telefoną, adresą, darbo laiką, rezervacijos nuorodą, įvertinimą, kitus bendrus tekstus</td><td>Elementor redaktoriuje: spustelėkite antraštę arba poraštę (arba ☰ → <strong>Svetainės nustatymai → Masažo Gurmanai</strong>). Tas pats — <a href="<?php echo esc_url( admin_url( 'admin.php?page=mg-settings' ) ); ?>">Masažo Gurmanai → Nustatymai</a>.</td></tr>
 				<tr><td>Puslapio tekstus ir nuotraukas</td><td><a href="<?php echo esc_url( admin_url( 'edit.php?post_type=page' ) ); ?>">Puslapiai</a> → „Redaguoti su Elementor“. Spustelėkite norimą bloką — kairėje atsiras jo laukai.</td></tr>
 				<tr><td>Meniu punktus</td><td><a href="<?php echo esc_url( admin_url( 'nav-menus.php' ) ); ?>">Išvaizda → Meniu</a></td></tr>
-				<tr><td>Logotipą ir svetainės ikoną</td><td><a href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>">Išvaizda → Konfigūruoti</a> → Tinklalapio identifikacija</td></tr>
+				<tr><td>Logotipą ir svetainės ikoną</td><td>Elementor: ☰ → <strong>Svetainės nustatymai → Site Identity</strong> (arba <a href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>">Išvaizda → Konfigūruoti</a> → Tinklalapio identifikacija)</td></tr>
 				<tr><td>Straipsnių skilties įjungimą</td><td><a href="<?php echo esc_url( admin_url( 'admin.php?page=mg-settings#mg-straipsniai' ) ); ?>">Masažo Gurmanai → Nustatymai → Straipsniai</a></td></tr>
 			</tbody>
 		</table>

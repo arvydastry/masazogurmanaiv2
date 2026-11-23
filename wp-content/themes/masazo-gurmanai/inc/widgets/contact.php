@@ -36,7 +36,7 @@ class Contact extends Base {
 		$this->heading_controls( array( 'title' => 'Kaip mus rasti' ), false, true );
 
 		$this->section( 'section_content', 'Turinys' );
-		$this->note( 'info', 'Adresas, telefonas, el. paštas ir darbo laikas imami iš <strong>Masažo Gurmanai → Nustatymai</strong>.' );
+		$this->note( 'info', 'Adresas, telefonas, el. paštas ir darbo laikas keičiami vienoje vietoje: <strong>Svetainės nustatymai → Masažo Gurmanai</strong> (☰ meniu viršuje kairėje) arba administravime <strong>Masažo Gurmanai → Nustatymai</strong>. Jie rodomi ir poraštėje.' );
 		$this->wysiwyg( 'route', 'Kaip atvykti' );
 		$this->media( 'photo', 'Nuotrauka (pvz. įėjimas į pastatą)' );
 		$this->text( 'photo_alt', 'Nuotraukos aprašymas (neregintiems)', '' );
@@ -45,7 +45,22 @@ class Contact extends Base {
 		$this->button_controls( 'btn2', 'Antras mygtukas', array( 'type' => 'phone' ) );
 		$this->end_controls_section();
 
+		$this->section( 'section_labels', 'Užrašai' );
+		$this->text( 'label_address', 'Adreso užrašas', 'Adresas' );
+		$this->text( 'label_phone', 'Telefono užrašas', 'Telefonas' );
+		$this->text( 'label_email', 'El. pašto užrašas', 'El. paštas' );
+		$this->text( 'label_hours', 'Darbo laiko užrašas', 'Darbo laikas' );
+		$this->text( 'label_map_open', 'Nuoroda į žemėlapį', 'Atidaryti žemėlapyje' );
+		$this->text( 'label_map_show', 'Žemėlapio mygtukas', 'Rodyti žemėlapį' );
+		$this->text( 'label_map_hint', 'Pastaba po žemėlapio mygtuku', 'Žemėlapį pateikia „Google Maps“.' );
+		$this->end_controls_section();
+
 		$this->layout_controls();
+	}
+
+	/** Užrašas iš valdiklio laukų (jei laukas niekada nekeistas — numatytasis). */
+	private function label( array $s, string $key, string $fallback ): string {
+		return isset( $s[ $key ] ) ? trim( (string) $s[ $key ] ) : $fallback;
 	}
 
 	protected function render() {
@@ -68,7 +83,7 @@ class Contact extends Base {
 		echo '<ul class="mg-contact__list">';
 
 		echo '<li class="mg-contact__item"><span class="mg-contact__icon">' . mg_icon( 'map-pin' ) . '</span><div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo '<' . $h . ' class="mg-contact__label">Adresas</' . $h . '>';
+		echo '<' . $h . ' class="mg-contact__label">' . esc_html( $this->label( $s, 'label_address', 'Adresas' ) ) . '</' . $h . '>';
 		echo '<p class="mg-contact__value">' . esc_html( mg_address_line() . ( '' !== $zip ? ', ' . $zip : '' ) ) . '</p>';
 		if ( '' !== $note ) {
 			echo '<p class="mg-contact__sub">' . esc_html( $note ) . '</p>';
@@ -76,7 +91,7 @@ class Contact extends Base {
 		if ( '' !== $map_url ) {
 			echo mg_button( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				array(
-					'label' => 'Atidaryti žemėlapyje',
+					'label' => $this->label( $s, 'label_map_open', 'Atidaryti žemėlapyje' ),
 					'url'   => $map_url,
 					'style' => 'link',
 					'icon'  => 'arrow-up-right',
@@ -87,14 +102,14 @@ class Contact extends Base {
 
 		if ( '' !== $phone ) {
 			echo '<li class="mg-contact__item"><span class="mg-contact__icon">' . mg_icon( 'phone' ) . '</span><div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			echo '<' . $h . ' class="mg-contact__label">Telefonas</' . $h . '>';
+			echo '<' . $h . ' class="mg-contact__label">' . esc_html( $this->label( $s, 'label_phone', 'Telefonas' ) ) . '</' . $h . '>';
 			echo '<p class="mg-contact__value"><a href="' . esc_attr( $phone ) . '">' . esc_html( mg_phone_display() ) . '</a></p>';
 			echo '</div></li>';
 		}
 
 		if ( '' !== $email ) {
 			echo '<li class="mg-contact__item"><span class="mg-contact__icon">' . mg_icon( 'envelope-simple' ) . '</span><div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			echo '<' . $h . ' class="mg-contact__label">El. paštas</' . $h . '>';
+			echo '<' . $h . ' class="mg-contact__label">' . esc_html( $this->label( $s, 'label_email', 'El. paštas' ) ) . '</' . $h . '>';
 			echo '<p class="mg-contact__value"><a href="' . esc_attr( 'mailto:' . $email ) . '">' . esc_html( $email ) . '</a></p>';
 			echo '</div></li>';
 		}
@@ -102,7 +117,7 @@ class Contact extends Base {
 		$hours = mg_hours_html();
 		if ( '' !== $hours ) {
 			echo '<li class="mg-contact__item"><span class="mg-contact__icon">' . mg_icon( 'clock' ) . '</span><div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			echo '<' . $h . ' class="mg-contact__label">Darbo laikas</' . $h . '>';
+			echo '<' . $h . ' class="mg-contact__label">' . esc_html( $this->label( $s, 'label_hours', 'Darbo laikas' ) ) . '</' . $h . '>';
 			echo $hours; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '</div></li>';
 		}
@@ -136,8 +151,11 @@ class Contact extends Base {
 		}
 		if ( 'yes' === $s['show_map'] && '' !== $embed ) {
 			echo '<div class="mg-map" data-mg-map="' . esc_url( $embed ) . '" data-mg-map-title="' . esc_attr( 'Žemėlapis: ' . mg_address_line() ) . '">';
-			echo '<button class="mg-btn mg-btn--outline" type="button">' . mg_icon( 'map-trifold', 'mg-btn__icon' ) . '<span class="mg-btn__label">Rodyti žemėlapį</span></button>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			echo '<p class="mg-map__hint">Žemėlapį pateikia „Google Maps“.</p>';
+			echo '<button class="mg-btn mg-btn--outline" type="button">' . mg_icon( 'map-trifold', 'mg-btn__icon' ) . '<span class="mg-btn__label">' . esc_html( $this->label( $s, 'label_map_show', 'Rodyti žemėlapį' ) ) . '</span></button>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			$hint = $this->label( $s, 'label_map_hint', '' );
+			if ( '' !== $hint ) {
+				echo '<p class="mg-map__hint">' . esc_html( $hint ) . '</p>';
+			}
 			echo '</div>';
 		}
 		echo '</div>';

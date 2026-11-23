@@ -9,7 +9,7 @@ rezervacija vyksta tik per **Treatwell**.
 Statinė peržiūros kopija: https://arvydastry.github.io/masazogurmanaiv2/ (šaka `gh-pages`, be WordPress administravimo,
 paslėpta nuo paieškos sistemų — `noindex`).
 
-Peržiūra: `ekrano-nuotraukos/` · Temos archyvas diegimui: `dist/masazo-gurmanai-2.0.2.zip`
+Peržiūra: `ekrano-nuotraukos/` · Temos archyvas diegimui: `dist/masazo-gurmanai-2.0.3.zip`
 
 ## Kas padaryta pagal kliento prašymus
 
@@ -31,11 +31,12 @@ aprašymai, dalijimosi paveikslėlis ir struktūriniai duomenys (adresas, darbo 
 | Ką | Kur |
 |---|---|
 | Paslaugos pavadinimas, aprašymas, kaina, trukmė, akcija, „Treatwell“ nuoroda | **Paslaugos** (kairiajame meniu). Pakeitus kainą čia — ji pasikeičia ir pradžios, ir paslaugų puslapyje. |
-| Telefonas, adresas, darbo laikas, rezervacijos nuoroda, įvertinimas | **Masažo Gurmanai → Nustatymai** |
+| Antraštė, poraštė, telefono juosta, telefonas, adresas, darbo laikas, rezervacijos nuoroda, įvertinimas, kiti bendri tekstai („Puslapis nerastas“, straipsnio pabaiga, mygtukų užrašai) | **Elementor redaktoriuje spustelėti antraštę arba poraštę** — atsidaro *Svetainės nustatymai → Masažo Gurmanai*. Tie patys laukai — ir *Masažo Gurmanai → Nustatymai* (abi vietos rodo tą patį). |
 | Puslapių tekstai ir nuotraukos | **Puslapiai → „Redaguoti su Elementor“**. Spustelėjus bloką, kairėje atsiranda jo laukai. |
 | Nauji blokai | Elementor valdiklių sąrašo viršuje — kategorija **„Masažo Gurmanai“** (15 blokų). |
 | Meniu | Išvaizda → Meniu |
-| Logotipas, svetainės ikona | Išvaizda → Konfigūruoti → Tinklalapio identifikacija |
+| Logotipas, svetainės ikona | Elementor: *Svetainės nustatymai → Site Identity* (arba Išvaizda → Konfigūruoti → Tinklalapio identifikacija) |
+| Straipsniai | Įprastas WordPress redaktorius (*Įrašai*); straipsnio pabaigos kvietimas — *Svetainės nustatymai → Masažo Gurmanai* |
 
 Tas pats aprašyta administravime: *Masažo Gurmanai → Pagalba*.
 
@@ -82,6 +83,8 @@ wp-content/themes/masazo-gurmanai/
   inc/seo.php              antraštė, aprašymas, Open Graph, JSON-LD (išsijungia, jei įdiegtas SEO įskiepis)
   inc/tracking.php         „Google Ads“ žyma (tik tikroje svetainėje)
   inc/elementor.php        Elementor integracija; inc/widgets/ — 15 valdiklių
+  inc/elementor-site-settings*.php  Elementor → Svetainės nustatymai → „Masažo Gurmanai“ (antraštė, poraštė, kontaktai…)
+  inc/migrate.php          vienkartiniai duomenų atnaujinimai atnaujinant temą
   inc/setup-content.php    pradinio turinio sukūrimas; inc/seed/ — pradiniai tekstai ir paslaugos
   assets/css/main.css      visi stiliai (spalvos ir šriftai — kintamieji failo pradžioje)
   assets/js/main.js        be bibliotekų: meniu, žemėlapis, pasirodymo animacija, paspaudimų įvykiai
@@ -99,7 +102,7 @@ prieš kiekvieną diegimą tikroje svetainėje — aiškus sutarimas):
 2. **Perkelti į Treatwell būsimas rezervacijas**, priimtas per svetainės kalendorių (*Rezervacijos* administravime) —
    po pakeitimo svetainė jų nebepriims.
 3. Įskiepiai → Pridėti → **Elementor** (nemokamas) → Įjungti.
-4. Išvaizda → Temos → Pridėti temą → Įkelti → `dist/masazo-gurmanai-2.0.2.zip` → **Įjungti**.
+4. Išvaizda → Temos → Pridėti temą → Įkelti → `dist/masazo-gurmanai-2.0.3.zip` → **Įjungti**.
 5. Iškart: *Masažo Gurmanai → Pradinis turinys → „Sukurti pradinį turinį“.* Esami puslapiai
    (pradžia, paslaugos, kuponai, apie, atsiliepimai, kontaktai) randami pagal adresą ir užpildomi; adresai nesikeičia.
 6. *Code Snippets* (WPCode) — išjungti senojo kalendoriaus intarpus: „Hero greita rezervacija (JS)“,

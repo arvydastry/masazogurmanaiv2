@@ -37,7 +37,7 @@ class Facts extends Base {
 
 	protected function register_controls() {
 		$this->section( 'section_content', 'Faktai' );
-		$this->note( 'info', 'Įvertinimas, adresas, darbo laikas ir telefonas imami iš <strong>Masažo Gurmanai → Nustatymai</strong>. Pasirinkus „Savas tekstas“, reikšmę įrašote čia.' );
+		$this->note( 'info', 'Įvertinimas, adresas, darbo laikas ir telefonas imami iš <strong>Svetainės nustatymai → Masažo Gurmanai</strong> (arba Masažo Gurmanai → Nustatymai). Pasirinkus „Savas tekstas“, reikšmę įrašote čia.' );
 
 		$repeater = new Repeater();
 		$repeater->add_control(

@@ -31,7 +31,7 @@ class Page_Hero extends Base {
 		$this->section( 'section_content', 'Turinys' );
 		$this->text( 'title', 'Antraštė (H1)', '', 'Palikus tuščią, rodomas puslapio pavadinimas.' );
 		$this->textarea( 'lead', 'Trumpas įvadas', '', '', 3 );
-		$this->switcher( 'crumbs', 'Rodyti kelią „Pradžia / Puslapis“', true );
+		$this->switcher( 'crumbs', 'Rodyti kelią „Pradžia / Puslapis“', true, 'Žodis „Pradžia“ keičiamas: Svetainės nustatymai → Masažo Gurmanai → Kiti svetainės tekstai.' );
 		$this->button_controls( 'btn', 'Mygtukas', array( 'type' => 'none' ) );
 		$this->end_controls_section();
 	}
@@ -51,7 +51,7 @@ class Page_Hero extends Base {
 
 		if ( 'yes' === $s['crumbs'] ) {
 			echo '<nav class="mg-crumbs" aria-label="Kelias iki šio puslapio"><ol>';
-			echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">Pradžia</a></li>';
+			echo '<li><a href="' . esc_url( home_url( '/' ) ) . '">' . esc_html( '' !== mg_text( 'crumb_home_label' ) ? mg_text( 'crumb_home_label' ) : 'Pradžia' ) . '</a></li>';
 			echo '<li aria-current="page">' . esc_html( '' !== $page ? $page : $title ) . '</li>';
 			echo '</ol></nav>';
 		}

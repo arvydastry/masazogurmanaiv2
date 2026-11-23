@@ -47,7 +47,7 @@ class Services extends Base {
 		);
 
 		$this->section( 'section_content', 'Paslaugos' );
-		$this->note( 'info', 'Paslaugų pavadinimai, aprašymai ir kainos keičiami: <strong>Skydelis → Paslaugos</strong>. Čia pasirenkate tik tai, kurias paslaugas ir kaip rodyti.' );
+		$this->note( 'info', 'Paslaugų pavadinimai, aprašymai, trukmės ir kainos laikomi vienoje vietoje — <a href="' . esc_url( admin_url( 'edit.php?post_type=' . MG_SERVICE_TYPE ) ) . '" target="_blank">Paslaugos</a> (atsidaro naujame skirtuke), todėl pakeitimas iškart matomas visuose puslapiuose. Čia pasirenkate, kurias paslaugas ir kaip rodyti. Mygtukų užrašai: Svetainės nustatymai → Masažo Gurmanai → Kiti svetainės tekstai.' );
 		$this->select(
 			'layout',
 			'Išdėstymas',

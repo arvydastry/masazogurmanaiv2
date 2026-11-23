@@ -18,7 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'MG_VERSION', '2.0.2' );
+define( 'MG_VERSION', '2.0.3' );
 define( 'MG_DIR', get_template_directory() );
 define( 'MG_URI', get_template_directory_uri() );
 
@@ -30,5 +30,6 @@ require MG_DIR . '/inc/blog.php';
 require MG_DIR . '/inc/seo.php';
 require MG_DIR . '/inc/tracking.php';
 require MG_DIR . '/inc/elementor.php';
+require MG_DIR . '/inc/elementor-site-settings.php';
 require MG_DIR . '/inc/setup-content.php';
 require MG_DIR . '/inc/migrate.php';

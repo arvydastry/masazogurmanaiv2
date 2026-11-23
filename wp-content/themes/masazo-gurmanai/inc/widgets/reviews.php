@@ -38,7 +38,7 @@ class Reviews extends Base {
 		$this->heading_controls( array( 'title' => 'Klientų patirtys' ) );
 
 		$this->section( 'section_content', 'Atsiliepimai' );
-		$this->switcher( 'show_rating', 'Rodyti bendrą įvertinimą', true, 'Įvertinimas ir atsiliepimų skaičius keičiami: Masažo Gurmanai → Nustatymai → Įvertinimas.' );
+		$this->switcher( 'show_rating', 'Rodyti bendrą įvertinimą', true, 'Įvertinimas ir atsiliepimų skaičius keičiami: Svetainės nustatymai → Masažo Gurmanai → Įvertinimas.' );
 		$this->text( 'rating_link', 'Nuorodos į visus atsiliepimus tekstas', 'Skaityti visus atsiliepimus' );
 
 		$repeater = new Repeater();

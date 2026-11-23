@@ -37,8 +37,10 @@ get_header();
 					</div>
 
 					<aside class="mg-article__cta" aria-label="Rezervacija">
-						<h2 class="mg-article__cta-title">Norite skirti laiko sau?</h2>
-						<p>Pasirinkite masažą ir rezervuokite Jums patogų laiką internetu.</p>
+						<h2 class="mg-article__cta-title"><?php echo esc_html( mg_text( 'post_cta_title' ) ); ?></h2>
+						<?php if ( '' !== mg_text( 'post_cta_text' ) ) : ?>
+							<p><?php echo nl2br( esc_html( mg_text( 'post_cta_text' ) ) ); ?></p>
+						<?php endif; ?>
 						<div class="mg-actions">
 							<?php
 							echo mg_booking_button( array( 'place' => 'straipsnis' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -47,7 +49,7 @@ get_header();
 							if ( $mg_services_page ) {
 								echo mg_button( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									array(
-										'label' => 'Paslaugos ir kainos',
+										'label' => mg_text( 'services_link_label' ),
 										'url'   => (string) get_permalink( $mg_services_page ),
 										'style' => 'outline',
 									)

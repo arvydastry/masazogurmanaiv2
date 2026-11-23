@@ -231,6 +231,11 @@ function mg_is_external( string $url ): bool {
 	return '' !== $host && strtolower( $host ) !== strtolower( $home );
 }
 
+/** Tekstas iš nustatymų; {metai} pakeičiama einamaisiais metais. */
+function mg_text( string $key ): string {
+	return str_replace( '{metai}', gmdate( 'Y' ), trim( (string) mg_get( $key, '' ) ) );
+}
+
 /**
  * Ar nuoroda veda į rezervaciją: bendroji rezervacijos nuoroda iš nustatymų, trumpoji „Treatwell“ nuoroda (trea.tw)
  * arba „Treatwell“ rezervacijos puslapis. Salono puslapis su atsiliepimais (/salonas/…) rezervacija nelaikomas,

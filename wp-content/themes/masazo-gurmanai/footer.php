@@ -56,13 +56,13 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 
 				<?php if ( has_nav_menu( 'footer' ) ) : ?>
 					<nav class="mg-footer__col" aria-labelledby="mg-footer-nav">
-						<h2 class="mg-footer__title" id="mg-footer-nav">Nuorodos</h2>
+						<h2 class="mg-footer__title" id="mg-footer-nav"><?php echo esc_html( mg_text( 'footer_nav_title' ) ); ?></h2>
 						<?php echo mg_nav_menu( 'footer', 'mg-footer__list' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</nav>
 				<?php endif; ?>
 
 				<div class="mg-footer__col">
-					<h2 class="mg-footer__title">Kontaktai</h2>
+					<h2 class="mg-footer__title"><?php echo esc_html( mg_text( 'footer_contacts_title' ) ); ?></h2>
 					<ul class="mg-footer__list mg-footer__list--contacts">
 						<li>
 							<?php echo mg_icon( 'map-pin' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -91,15 +91,17 @@ if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_
 				</div>
 
 				<div class="mg-footer__col">
-					<h2 class="mg-footer__title">Darbo laikas</h2>
+					<h2 class="mg-footer__title"><?php echo esc_html( mg_text( 'footer_hours_title' ) ); ?></h2>
 					<?php echo mg_hours_html(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</div>
 			</div>
 
 			<div class="mg-footer__bottom">
-				<p>&copy; <?php echo esc_html( gmdate( 'Y' ) . ' ' . mg_get( 'brand_name' ) . '. ' . mg_get( 'owner_name' ) . '.' ); ?> Visos teisės saugomos.</p>
-				<?php if ( get_privacy_policy_url() ) : ?>
-					<p><a href="<?php echo esc_url( get_privacy_policy_url() ); ?>">Privatumo politika</a></p>
+				<?php if ( '' !== mg_text( 'footer_copyright' ) ) : ?>
+					<p><?php echo esc_html( mg_text( 'footer_copyright' ) ); ?></p>
+				<?php endif; ?>
+				<?php if ( get_privacy_policy_url() && '' !== mg_text( 'privacy_label' ) ) : ?>
+					<p><a href="<?php echo esc_url( get_privacy_policy_url() ); ?>"><?php echo esc_html( mg_text( 'privacy_label' ) ); ?></a></p>
 				<?php endif; ?>
 			</div>
 		</div>
@@ -113,7 +115,7 @@ if ( mg_get( 'mobile_bar' ) ) :
 		<?php if ( '' !== $mg_phone_href ) : ?>
 			<a class="mg-mobilebar__call" href="<?php echo esc_attr( $mg_phone_href ); ?>">
 				<?php echo mg_icon( 'phone' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				<span>Skambinti</span>
+				<span><?php echo esc_html( mg_text( 'mobile_call_label' ) ); ?></span>
 			</a>
 		<?php endif; ?>
 		<?php

@@ -424,7 +424,7 @@ function mg_service_button( array $svc, string $place, string $style = 'outline'
 	if ( 'call' === $svc['cta'] ) {
 		return mg_button(
 			array(
-				'label'      => 'Skambinti',
+				'label'      => mg_text( 'service_call_label' ),
 				'url'        => $svc['url'],
 				'style'      => $style,
 				'size'       => 'sm',
@@ -437,7 +437,7 @@ function mg_service_button( array $svc, string $place, string $style = 'outline'
 
 	return mg_button(
 		array(
-			'label'      => 'Rezervuoti',
+			'label'      => mg_text( 'service_book_label' ),
 			'url'        => $svc['url'],
 			'style'      => $style,
 			'size'       => 'sm',
@@ -498,7 +498,7 @@ function mg_render_service_row( array $svc, bool $open = false ): string {
 		$summary .= '<span class="mg-svc__dur">' . mg_sr( 'Trukmė: ' ) . esc_html( $svc['duration'] ) . '</span>';
 	}
 	if ( '' !== $svc['old_price'] ) {
-		$summary .= '<span class="mg-tag">Akcija</span>';
+		$summary .= '' !== mg_text( 'promo_label' ) ? '<span class="mg-tag">' . esc_html( mg_text( 'promo_label' ) ) . '</span>' : '';
 	}
 	$summary .= '</span></span>';
 	$summary .= '<span class="mg-svc__price">' . mg_service_price_html( $svc ) . '</span>';
