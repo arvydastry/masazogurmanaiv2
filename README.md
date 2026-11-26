@@ -1,10 +1,12 @@
 # Masažo Gurmanai — WordPress tema v2 (Elementor)
 
-Atnaujinta masazogurmanai.lt svetainė: masažuotojas Povilas Maliukevičius, Kaunas.
+Atnaujintos masazogurmanai.lt svetainės versija: masažuotojas Povilas Maliukevičius, Kaunas.
 Nauja tema `masazo-gurmanai` — juoda ir auksas pagal kliento iškabą, puslapiai redaguojami su **Elementor**,
 rezervacija vyksta tik per **Treatwell**.
 
-**Įdiegta: https://masazogurmanai.lt/** (2026-11-23)
+> **Šiuo metu masazogurmanai.lt veikia senoji versija.** Tema buvo įdiegta 2026-11-23 (2.0.0–2.0.3), o 2026-11-26
+> svetainė grąžinta į būseną prieš diegimą (UpdraftPlus kopija 2026-11-23 11:01). Naujos versijos duomenų bazės
+> kopija su visais pakeitimais — UpdraftPlus 2026-11-26 7:44.
 
 Statinė peržiūros kopija: https://arvydastry.github.io/masazogurmanaiv2/ (šaka `gh-pages`, be WordPress administravimo,
 paslėpta nuo paieškos sistemų — `noindex`).
@@ -95,7 +97,7 @@ Spalvos keičiamos vienoje vietoje — `assets/css/main.css` pradžioje (`--mg-g
 
 ## Diegimas tikroje svetainėje
 
-Tema į masazogurmanai.lt įdiegta 2026-11-23 šiais žingsniais (tinka ir diegiant iš naujo ar kitoje svetainėje;
+Diegimo žingsniai (2026-11-23 tema buvo įdiegta būtent taip, 2026-11-26 — grąžinta senoji versija;
 prieš kiekvieną diegimą tikroje svetainėje — aiškus sutarimas):
 
 1. **Atsarginė kopija:** UpdraftPlus → „Backup Now“ (duomenų bazė ir failai).
